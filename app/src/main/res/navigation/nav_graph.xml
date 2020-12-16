@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto" android:id="@+id/nav_graph.xml"
+    app:startDestination="@id/taskListFragment">
+
+    <fragment
+        android:id="@+id/registrationFragment2"
+        android:name="space.ibrahim.todoapp.user.RegistrationFragment"
+        android:label="RegistrationFragment" >
+        <action
+            android:id="@+id/action_registrationFragment2_to_taskListFragment"
+            app:destination="@id/taskListFragment"
+            app:popUpTo="@id/registrationFragment2"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/taskListFragment"
+        android:name="space.ibrahim.todoapp.tasks.TaskListFragment"
+        android:label="TaskListFragment" >
+        <action
+            android:id="@+id/action_taskListFragment_to_registrationFragment2"
+            app:destination="@id/registrationFragment2"
+            app:popUpTo="@id/taskListFragment"
+            app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_taskListFragment_to_createTaskFragment"
+            app:destination="@id/createTaskFragment" />
+    </fragment>
+    <dialog
+        android:id="@+id/createTaskFragment"
+        android:name="space.ibrahim.todoapp.createtask.CreateTaskFragment"
+        android:label="CreateTaskFragment" />
+</navigation>

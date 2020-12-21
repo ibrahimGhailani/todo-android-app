@@ -1,12 +1,8 @@
 package space.ibrahim.todoapp.repository
 
-import android.util.Log
-import kotlinx.coroutines.delay
-import kotlinx.coroutines.runBlocking
 import okhttp3.Credentials
 import space.ibrahim.todoapp.network.UserRemoteSource
 import space.ibrahim.todoapp.util.PreferenceManager
-import java.lang.IllegalArgumentException
 import javax.inject.Inject
 import javax.inject.Singleton
 

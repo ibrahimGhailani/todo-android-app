@@ -35,7 +35,8 @@ class TaskAdapter(
         notifyItemChanged(position)
     }
 
-    inner class TaskViewHolder(private val item: ItemTaskBinding) : RecyclerView.ViewHolder(item.root) {
+    inner class TaskViewHolder(private val item: ItemTaskBinding) :
+        RecyclerView.ViewHolder(item.root) {
 
         fun bind(task: Task, position: Int) {
             item.title.text = task.title

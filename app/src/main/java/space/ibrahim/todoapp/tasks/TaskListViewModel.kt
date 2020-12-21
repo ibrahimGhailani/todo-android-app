@@ -9,7 +9,6 @@ import kotlinx.coroutines.launch
 import space.ibrahim.todoapp.repository.TaskRepository
 import space.ibrahim.todoapp.repository.UserRepository
 import space.ibrahim.todoapp.util.Event
-import java.lang.Exception
 
 class TaskListViewModel @ViewModelInject constructor(
     private val taskRepository: TaskRepository,

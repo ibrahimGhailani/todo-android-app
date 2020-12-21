@@ -3,7 +3,6 @@ package space.ibrahim.todoapp.repository
 import space.ibrahim.todoapp.network.TaskRemoteSource
 import space.ibrahim.todoapp.tasks.Task
 import space.ibrahim.todoapp.util.PreferenceManager
-import java.lang.Exception
 import javax.inject.Inject
 import javax.inject.Singleton
 
@@ -25,10 +24,12 @@ class TaskRepository @Inject constructor(
     }
 
     suspend fun createTask(title: String, content: String): Task {
-        val response = taskRemoteSource.createTask(Task(
-            title = title,
-            content = content
-        ))
+        val response = taskRemoteSource.createTask(
+            Task(
+                title = title,
+                content = content
+            )
+        )
         if (!response.isSuccessful) throw Exception("Something went wrong")
         return response.body() ?: throw Exception("Something went wrong")
     }

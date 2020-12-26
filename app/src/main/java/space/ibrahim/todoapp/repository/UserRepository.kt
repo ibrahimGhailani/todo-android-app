@@ -10,22 +10,22 @@ import javax.inject.Singleton
 class UserRepository @Inject constructor(
     private val remoteSource: UserRemoteSource,
     private val preferenceManager: PreferenceManager
-) {
+) : IUserRepository {
 
-    suspend fun createUser(username: String, password: String) {
+    override suspend fun createUser(username: String, password: String) {
         val response = remoteSource.createUser(username, password)
         preferenceManager.saveBasicAuth(username, password)
         if (!response.isSuccessful) throw Exception("Something went wrong")
     }
 
-    suspend fun login(username: String, password: String) {
+    override suspend fun login(username: String, password: String) {
         val basicAuth = Credentials.basic(username, password)
         val response = remoteSource.login(basicAuth)
         preferenceManager.saveBasicAuth(username, password)
         if (!response.isSuccessful) throw Exception("Something went wrong")
     }
 
-    fun isUserLoggedIn(): Boolean {
+    override fun isUserLoggedIn(): Boolean {
         return preferenceManager.getBasicAuth() != null
     }
 

@@ -5,12 +5,14 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import kotlinx.coroutines.CoroutineDispatcher
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
-import space.ibrahim.todoapp.repository.UserRepository
+import space.ibrahim.todoapp.repository.IUserRepository
 import space.ibrahim.todoapp.util.Event
 
 class RegistrationViewModel @ViewModelInject constructor(
-    private val userRepository: UserRepository
+    private val userRepository: IUserRepository
 ) : ViewModel() {
 
     private val _uiState = MutableLiveData<Event<UiState>>()

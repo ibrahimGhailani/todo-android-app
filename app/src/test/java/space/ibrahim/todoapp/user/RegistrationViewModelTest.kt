@@ -5,7 +5,6 @@ import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.test.runBlockingTest
 import org.junit.Rule
 import org.junit.Test
-import space.ibrahim.todoapp.MainCoroutineRule
 import space.ibrahim.todoapp.TestCoroutineRule
 import space.ibrahim.todoapp.getOrAwaitValue
 import space.ibrahim.todoapp.repository.FakeUserRepository

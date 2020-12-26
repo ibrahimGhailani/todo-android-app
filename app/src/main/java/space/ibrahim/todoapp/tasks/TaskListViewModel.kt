@@ -6,13 +6,13 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.launch
-import space.ibrahim.todoapp.repository.TaskRepository
-import space.ibrahim.todoapp.repository.UserRepository
+import space.ibrahim.todoapp.repository.ITaskRepository
+import space.ibrahim.todoapp.repository.IUserRepository
 import space.ibrahim.todoapp.util.Event
 
 class TaskListViewModel @ViewModelInject constructor(
-    private val taskRepository: TaskRepository,
-    private val userRepository: UserRepository
+    private val taskRepository: ITaskRepository,
+    private val userRepository: IUserRepository
 ) : ViewModel() {
 
     private val _uiState = MutableLiveData<Event<UiState>>()

@@ -47,6 +47,8 @@ dependencies {
     implementation 'com.google.android.material:material:1.2.1'
     implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
     testImplementation 'junit:junit:4.13.1'
+    testImplementation "androidx.arch.core:core-testing:2.1.0"
+    testImplementation "org.jetbrains.kotlinx:kotlinx-coroutines-test:1.4.2"
     androidTestImplementation('org.jetbrains.kotlinx:kotlinx-coroutines-test:1.4.2') {
         exclude group: "org.jetbrains.kotlinx", module: "kotlinx-coroutines-debug"
     }

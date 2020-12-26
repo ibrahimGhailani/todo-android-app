@@ -10,20 +10,20 @@ import javax.inject.Singleton
 class TaskRepository @Inject constructor(
     private val taskRemoteSource: TaskRemoteSource,
     private val preferenceManager: PreferenceManager
-) {
-    suspend fun getTasks(): List<Task> {
+) : ITaskRepository {
+    override suspend fun getTasks(): List<Task> {
         val response = taskRemoteSource.getAllTasks()
         if (!response.isSuccessful) throw Exception("Something went wrong")
         return response.body() ?: throw Exception("Something went wrong")
     }
 
-    suspend fun updateTask(task: Task): Task {
+    override suspend fun updateTask(task: Task): Task {
         val response = taskRemoteSource.updateTask(task.id, task)
         if (!response.isSuccessful) throw Exception("Something went wrong")
         return response.body() ?: throw Exception("Something went wrong")
     }
 
-    suspend fun createTask(title: String, content: String): Task {
+    override suspend fun createTask(title: String, content: String): Task {
         val response = taskRemoteSource.createTask(
             Task(
                 title = title,
